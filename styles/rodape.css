@@ -1,0 +1,140 @@
+.rodape-contato {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 32px;
+    gap: 32px;
+    background-color: var(--cor-de-fundo-secudaria);
+}
+.contato-infos{
+    
+    display:flex;
+    flex-direction:column;
+    gap: 32px;
+}
+.contato-infos-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.contato-titulo {
+    font-size: 22px;
+    font-weight: var(--bold);
+    margin: 0;
+}
+.contato-descricao{
+    font-weight: var(--medium);
+    margin: 0;
+}
+.contato-form{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+}
+.contato-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--cor-de-fundo-white);
+    border-bottom: 2px solid #C8C8C8;
+    height: 56px;
+    width: 100%;
+    gap: 4px;
+}
+.box-input{
+    border: transparent;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    padding: 0px 12px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.box-input:focus {
+    outline:none;
+}
+.box-label{
+    font-size: 12px;
+    padding: 4px 12px;
+}
+
+.contato-box-mensagem{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-de-fundo-white);
+    border-bottom: 2px solid #C8C8C8;
+    height: 133px;
+    width: 100% ;
+    gap: 4px;
+}
+.box-input-mensagem {
+    border: transparent;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    padding: 0px 12px;
+    height: 133px;
+}
+.box-input-mensagem:focus {
+    outline:none;
+}
+.contato-form-botao {
+    border:none;
+    font-family: "Raleway", sans-serif;
+    background-color: #2A7AE4;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: var(--semibold);
+    height: 40px;
+    width: 151px ;
+}
+.contato-form-botao:hover {
+    background-color: #5595E9;
+}
+.contato-form-botao:disabled{
+    background-color: #5595E9;
+}
+.rodape-contato-img{
+    display: none;
+}
+
+.rodape-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px;
+    color: var(--cor-texto-black);
+    background-color: var(--cor-de-fundo);
+    font-weight: var(--medium);
+    font-size: 16px;
+}
+.campo-invalido {
+    border-color: red;
+}
+
+@media(min-width: 768px) {
+
+}
+
+
+
+
+@media(min-width: 1440px) {
+    .rodape-contato {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 64px;
+        gap: 16px;
+    }
+    .rodape-contato-img{
+        display: block;
+        width: 464px;
+        height: 593px;
+    }
+    .contato-titulo {
+        font-size: 32px;
+    }
+    .contato-descricao{
+        font-size: 16px;
+    }
+}

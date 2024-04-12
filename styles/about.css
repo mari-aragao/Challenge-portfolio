@@ -1,0 +1,37 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--cor-de-fundo-secudaria);
+}
+.about-titulo {
+    font-weight: var(--bold);
+    font-size: 22px;
+    margin: 0;
+}
+.about-paragrafo {
+    font-size: 14px;
+    margin: 0;
+}
+.about-assinatura {
+    width: 140px;
+}
+
+
+
+
+@media(min-width: 768px) {
+
+}
+
+
+
+
+@media(min-width: 1440px) {
+    .about-titulo {
+        font-size: 32px;
+    }
+    .about-paragrafo {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor-de-fundo: #EDEDED;
+    --cor-de-fundo-secudaria: #EAF2FD;
+    --cor-de-fundo-white: #FFFFFF;
+    --cor-texto: #464646;
+    --cor-texto-black: #000000;
+
+    --regular: 400;
+    --medium: 500;
+    --semibold: 600;
+    --bold: 700;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--cor-de-fundo);
+    font-family: "Raleway", sans-serif;
+    font-weight: var(--regular);
+    margin: 0%;
+}
+section {
+    padding: 4% 4%;
+}
+
+
+@media(min-width: 768px) {
+
+}
+
+@media(min-width: 1440px) {
+    section {
+        padding: 4% 10.5%;
+    }
+}
