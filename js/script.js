@@ -25,11 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const parentDiv = input.parentElement;
             if (input.value.trim() !== '') {
                 label.classList.remove('hidden');
+                input.classList.remove('unset');
                 parentDiv.classList.remove('ajust');
             } else {
                 label.classList.add('hidden');
+                input.classList.add('unset');
                 parentDiv.classList.add('ajust');
             }
+        });
+    });
+
+    // Adicionar o script para mudar a cor da label quando o input estiver em foco
+    const inputFields = document.querySelectorAll('.box-input');
+    inputFields.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.previousElementSibling.classList.add('focused');
+        });
+
+        input.addEventListener('blur', () => {
+            input.previousElementSibling.classList.remove('focused');
         });
     });
 
