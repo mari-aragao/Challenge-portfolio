@@ -107,16 +107,13 @@
     font-weight: var(--medium);
     font-size: 16px;
 }
-.campo-invalido {
-    border-color: red;
+.contato-box.invalid, .contato-box-mensagem.invalid{
+    border: 2px solid red;
 }
 
 @media(min-width: 768px) {
 
 }
-
-
-
 
 @media(min-width: 1440px) {
     .rodape-contato {

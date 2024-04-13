@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Scrow menu header
     const links = document.querySelectorAll('.menu-list-link');
-
     links.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -16,53 +16,62 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
+    
+    // Habilitar o botao contato e verificar se os inputs são validos
     const form = document.querySelector('.contato-form');
+    const submitButton = document.getElementById('submit');
     const nomeInput = document.getElementById('nome');
     const emailInput = document.getElementById('email');
     const assuntoInput = document.getElementById('assunto');
     const mensagemInput = document.getElementById('mensagem');
-    const submitButton = document.getElementById('submit');
 
-    function checkFormInputs() {
-        if (nomeInput.value.trim() !== '' && emailInput.value.trim() !== '' && assuntoInput.value.trim() !== '' && mensagemInput.value.trim() !== '') {
-            submitButton.disabled = false;
+    nomeInput.addEventListener('input', () => {
+        checkFormInputs(nomeInput);
+    });
+    
+    emailInput.addEventListener('input', () => {
+        checkFormInputs(emailInput);
+    });
+    
+    assuntoInput.addEventListener('input', () => {
+        checkFormInputs(assuntoInput);
+    });
+    
+    mensagemInput.addEventListener('input', () => {
+        checkFormInputs(mensagemInput);
+    });
+    
+    function checkFormInputs(input) {
+        if (input.id === 'email') {
+            if (!isEmailValid(input.value)) {
+                input.parentElement.classList.add('invalid');
+            } else {
+                input.parentElement.classList.remove('invalid');
+            }
         } else {
-            submitButton.disabled = true;
+            if (!input.checkValidity() || input.parentElement.classList.contains('invalid')) {
+                input.parentElement.classList.add('invalid');
+            } else {
+                input.parentElement.classList.remove('invalid');
+            }
         }
+
+        const inputs = [nomeInput, emailInput, assuntoInput, mensagemInput];
+        let formIsValid = true;
+    
+        inputs.forEach(input => {
+            if (!input.checkValidity() || input.parentElement.classList.contains('invalid')) {
+                formIsValid = false;
+            }
+        });
+        
+        console.log("formIsValid", formIsValid);
+        submitButton.disabled = !formIsValid;
     }
-
-    // Adiciona um ouvinte de evento de entrada (input) a cada campo do formulário
-    nomeInput.addEventListener('input', checkFormInputs);
-    emailInput.addEventListener('input', checkFormInputs);
-    assuntoInput.addEventListener('input', checkFormInputs);
-    mensagemInput.addEventListener('input', checkFormInputs);
-
-    // O ouvinte de evento de envio do formulário
-    form.addEventListener('submit', function(e) {
-        // Verifica se algum campo do formulário está vazio antes de enviar
-        if (nomeInput.value.trim() === '' || emailInput.value.trim() === '' || assuntoInput.value.trim() === '' || mensagemInput.value.trim() === '') {
-            e.preventDefault();
-            alert('Por favor, preencha todos os campos do formulário antes de enviar.');
-        }
-    });
-
-
-    form.addEventListener('submit', function(e) {
-        if (mensagemInput.value.trim() === '') {
-            e.preventDefault(); // Impede o envio do formulário
-            mensagemInput.classList.add('campo-invalido'); // Adiciona classe para estilização CSS
-        }
-    });
-
-    // Adiciona um ouvinte de evento de clique no botão de envio
-    submitButton.addEventListener('click', function() {
-        if (mensagemInput.value.trim() === '') {
-            mensagemInput.classList.add('campo-invalido'); // Adiciona classe para estilização CSS
-        } else {
-            // Remove a classe de campo inválido se o campo estiver preenchido
-            mensagemInput.classList.remove('campo-invalido');
-        }
-    });
-
+    function isEmailValid(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.trim() === '')
+            return 0;
+       return emailPattern.test(email);
+    }
 });
