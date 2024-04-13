@@ -31,6 +31,16 @@
     gap: 32px;
 
 }
+.contato-box.ajust{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--cor-de-fundo-white);
+    border-bottom: 2px solid #C8C8C8;
+    height: 56px;
+    width: 100%;
+    gap: 4px;
+}
 .contato-box{
     display: flex;
     flex-direction: column;
@@ -49,14 +59,35 @@
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
 }
+.box-input{
+    border: transparent;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    padding: 0px 12px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
 .box-input:focus {
     outline:none;
+}
+.box-label.hidden{
+    display: none;
 }
 .box-label{
     font-size: 12px;
     padding: 4px 12px;
 }
 
+.contato-box-mensagem.ajust{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-de-fundo-white);
+    border-bottom: 2px solid #C8C8C8;
+    height: 101px;
+    width: 100%;
+    padding: 16px 0 16px 0;
+    gap: 4px;
+}
 .contato-box-mensagem{
     display: flex;
     flex-direction: column;

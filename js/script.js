@@ -17,6 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Desabilitar o label quando nao tiver nada escrito
+    const inputsForLabels = document.querySelectorAll('.box-input, .box-input-mensagem');
+    inputsForLabels.forEach(input => {
+        input.addEventListener('input', () => {
+            const label = input.previousElementSibling;
+            const parentDiv = input.parentElement;
+            if (input.value.trim() !== '') {
+                label.classList.remove('hidden');
+                parentDiv.classList.remove('ajust');
+            } else {
+                label.classList.add('hidden');
+                parentDiv.classList.add('ajust');
+            }
+        });
+    });
+
     // Habilitar o botao contato e verificar se os inputs são validos
     const form = document.querySelector('.contato-form');
     const submitButton = document.getElementById('submit');
@@ -40,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mensagemInput.addEventListener('input', () => {
         checkFormInputs(mensagemInput);
     });
-    
+
     function checkFormInputs(input) {
         if (input.id === 'email') {
             if (!isEmailValid(input.value)) {
@@ -49,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 input.parentElement.classList.remove('invalid');
             }
         } else {
-            if (!input.checkValidity() || input.parentElement.classList.contains('invalid')) {
+            if (!input.value.trim()){
                 input.parentElement.classList.add('invalid');
             } else {
                 input.parentElement.classList.remove('invalid');
@@ -68,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("formIsValid", formIsValid);
         submitButton.disabled = !formIsValid;
     }
+    
+
     function isEmailValid(email) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email.trim() === '')
